@@ -1,3 +1,27 @@
+.flexc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexcc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wFull {
+  width: 100%;
+}
+.hFull {
+  height: 100%;
+}
+.hScreen {
+  height: 100vh;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -97,7 +121,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
