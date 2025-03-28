@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 function Products() {
-  const [isLogin, setIsLogin] = useState<Boolean>(false);
+  const [isLogin, setIsLogin] = useState<Boolean>(true);
   const { push } = useRouter();
 
   useEffect(() => {
@@ -14,9 +14,7 @@ function Products() {
 
   return (
     <>
-      <User>
-        <div>Products</div>
-      </User>
+      <div>Products</div>
     </>
   );
 }

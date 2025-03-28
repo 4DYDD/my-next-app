@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useRouter } from "next/router";
+import { Inter } from "next/font/google";
 
 interface UserProps {
   // Define your props here
@@ -8,13 +10,21 @@ interface UserProps {
   className?: string;
 }
 
+const inter = Inter({ subsets: ["latin"] });
+
+const disableNavbar = ["/auth/login", "/auth/register"];
+
 function User({ children }: UserProps) {
+  const { pathname } = useRouter();
+
+  console.log("Current pathname:", pathname);
+
   return (
-    <>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
-    </>
+    <main className={`${inter.className} h-screen flexc flex-col`}>
+      {!disableNavbar.includes(pathname) && <Navbar />}
+      <div className="h-full">{children}</div>
+      {!disableNavbar.includes(pathname) && <Footer />}
+    </main>
   );
 }
 
