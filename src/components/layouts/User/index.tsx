@@ -22,7 +22,7 @@ function User({ children }: UserProps) {
   return (
     <main className={`${inter.className} h-screen flexc flex-col`}>
       {!disableNavbar.includes(pathname) && <Navbar />}
-      <div className="h-full">{children}</div>
+      <div className="h-full flexc flex-col w-full">{children}</div>
       {!disableNavbar.includes(pathname) && <Footer />}
     </main>
   );
