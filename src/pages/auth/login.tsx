@@ -2,6 +2,7 @@ import React, { CSSProperties } from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,6 +12,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
+    width: "100vw",
     backgroundColor: "#f3f4f6",
     fontFamily: `${inter.style.fontFamily} !important`,
   },
@@ -84,58 +86,64 @@ function LoginPage() {
   };
 
   return (
-    <div className={inter.className} style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>Login</h1>
+    <>
+      <Head>
+        <title>Login Page</title>
+      </Head>
 
-        <form onSubmit={handleSubmit} className={inter.className}>
-          <div style={styles.formGroup}>
-            <label htmlFor="email" style={styles.label}>
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className={inter.className}
-              style={styles.input}
-              placeholder="Enter your email"
-            />
-          </div>
-          <div style={styles.formGroup}>
-            <label htmlFor="password" style={styles.label}>
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className={inter.className}
-              style={styles.input}
-              placeholder="Enter your password"
-            />
-          </div>
-          <button
-            type="submit"
-            className={inter.className}
-            style={styles.button}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.backgroundColor = "#2563eb")
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.backgroundColor = "#3b82f6")
-            }
-          >
-            Login
-          </button>
-        </form>
+      <div className={inter.className} style={styles.container}>
+        <div style={styles.card}>
+          <h1 style={styles.title}>Login</h1>
 
-        <p style={styles.linkText}>
-          Belum punya akun?{" "}
-          <Link href={"/auth/register"} style={styles.link}>
-            register disini
-          </Link>
-        </p>
+          <form onSubmit={handleSubmit} className={inter.className}>
+            <div style={styles.formGroup}>
+              <label htmlFor="email" style={styles.label}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className={inter.className}
+                style={styles.input}
+                placeholder="Enter your email"
+              />
+            </div>
+            <div style={styles.formGroup}>
+              <label htmlFor="password" style={styles.label}>
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className={inter.className}
+                style={styles.input}
+                placeholder="Enter your password"
+              />
+            </div>
+            <button
+              type="submit"
+              className={inter.className}
+              style={styles.button}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.backgroundColor = "#2563eb")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.backgroundColor = "#3b82f6")
+              }
+            >
+              Login
+            </button>
+          </form>
+
+          <p style={styles.linkText}>
+            Belum punya akun?{" "}
+            <Link href={"/auth/register"} style={styles.link}>
+              register disini
+            </Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

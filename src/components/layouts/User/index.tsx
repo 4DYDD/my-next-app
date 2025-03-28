@@ -12,7 +12,7 @@ interface UserProps {
 
 const inter = Inter({ subsets: ["latin"] });
 
-const disableNavbar = ["/auth/login", "/auth/register"];
+const disableNavbar = ["/auth/login", "/auth/register", "/404"];
 
 function User({ children }: UserProps) {
   const { pathname } = useRouter();

@@ -2,6 +2,7 @@ import React, { CSSProperties } from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,6 +12,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
+    width: "100vw",
     backgroundColor: "#f3f4f6",
     fontFamily: `${inter.style.fontFamily} !important`,
   },
@@ -85,6 +87,10 @@ function RegisterPage() {
 
   return (
     <>
+      <Head>
+        <title>Register Page</title>
+      </Head>
+
       <div className={inter.className} style={styles.container}>
         <div style={styles.card}>
           <h1 style={styles.title}>Register</h1>

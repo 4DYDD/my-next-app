@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import React from "react";
@@ -12,6 +13,10 @@ function ShopPage() {
 
   return (
     <>
+      <Head>
+        <title>Shop Page</title>
+      </Head>
+
       <div>ShopPage</div>
       <p>
         Shop :{" "}
