@@ -313,3 +313,24 @@ body {
 .animate-fast-spin {
   animation: fast-spin 0.8s linear infinite;
 }
+
+/* Custom Scrollbar */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #101828 #e4e8e9;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #101828;
+  border-radius: 4px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background-color: #e4e8e9;
+  border-radius: 4px;
+}

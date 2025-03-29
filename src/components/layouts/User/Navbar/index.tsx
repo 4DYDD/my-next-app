@@ -8,11 +8,11 @@ function Navbar() {
         {/* Logo */}
         <div className="flexc gap-3 w-52">
           <Image
-            height={48}
-            width={48}
-            src="https://plus.unsplash.com/premium_photo-1661962960694-0b4ed303744f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            width={2000}
+            height={2000}
+            src="https://img.freepik.com/premium-vector/modern-shoes-logo-template-design_316488-856.jpg?w=2000"
             alt="Logo"
-            className="h-12 w-12 rounded-full"
+            className="rounded-full w-16"
           />
           <span className="text-lg font-semibold">My App</span>
         </div>
