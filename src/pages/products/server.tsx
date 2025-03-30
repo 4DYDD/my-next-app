@@ -1,43 +1,10 @@
-import { useRouter } from "next/router";
-import React, { Fragment, useEffect, useState } from "react";
-import Head from "next/head";
-import { Data } from "../api/products";
-import { toIndonesiaCurrency } from "@/utils/toIndonesiaCurrency";
-import Image from "next/image";
-import useSWR from "swr";
-import { fetcher } from "@/lib/swr/fetcher";
+import React, { Fragment } from "react";
 import { DataType } from "@/types/datatype";
+import { toIndonesiaCurrency } from "@/utils/toIndonesiaCurrency";
+import Head from "next/head";
+import Image from "next/image";
 
-function Products() {
-  const [isLogin, setIsLogin] = useState<Boolean>(true);
-  const { push } = useRouter();
-
-  useEffect(() => {
-    if (!isLogin) {
-      push("/auth/login");
-    }
-  }, [isLogin]);
-
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate 1 second delay
-  //     fetch("/api/products")
-  //       .then((res) => res.json())
-  //       .then((response: Data) => {
-  //         console.log(response);
-  //         setProducts(response.data);
-  //       });
-  //   };
-
-  //   fetchProducts();
-  // }, []);
-
-  const { data, error, isLoading } = useSWR<Data | null>(
-    "/api/products",
-    fetcher
-  );
-  const products: Array<DataType> | null = data?.data;
-
+function ProductsPage({ products }: { products: Array<DataType> | [] }) {
   return (
     <>
       <Head>
@@ -47,8 +14,8 @@ function Products() {
       <h1 className="font-bold text-3xl mb-5">Products</h1>
 
       <div className="container grid md:grid-cols-2 w-[95%] xl:grid-cols-3 overflow-y-auto h-[65vh] scrollbar-custom">
-        {!isLoading
-          ? products?.map((value, index) => (
+        {products?.length > 0
+          ? products.map((value, index) => (
               <Fragment key={`product-${index}`}>
                 <ul className="m-3 p-3 flex-col flexc gap-1 rounded-xl shadow shadow-gray-400 outline-1 outline-gray-300">
                   <li className=" flexc !justify-start w-full mb-5">
@@ -106,4 +73,17 @@ function Products() {
   );
 }
 
-export default Products;
+export default ProductsPage;
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/products");
+  const response = await res.json();
+
+  const products: Array<DataType> | null = response?.data || [];
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
