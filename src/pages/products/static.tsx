@@ -75,7 +75,7 @@ function ProductsPage({ products }: { products: Array<DataType> | [] }) {
 
 export default ProductsPage;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // fetch data
   const res = await fetch("http://localhost:3000/api/products");
   const response = await res.json();
