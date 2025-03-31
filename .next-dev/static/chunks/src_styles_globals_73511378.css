@@ -391,6 +391,10 @@
     margin-top: calc(var(--spacing) * 4);
   }
 
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
   }
@@ -508,6 +512,10 @@
     justify-content: flex-start !important;
   }
 
+  .justify-center {
+    justify-content: center;
+  }
+
   .gap-1 {
     gap: calc(var(--spacing) * 1);
   }
@@ -553,6 +561,10 @@
 
   .border-gray-300 {
     border-color: var(--color-gray-300);
+  }
+
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
   }
 
   .bg-blue-600 {

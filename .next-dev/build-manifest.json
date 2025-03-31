@@ -1,55 +1,6 @@
 {
   "pages": {
-    "/_app": [
-      "static/chunks/node_modules_next_6a699261._.js",
-      "static/chunks/node_modules_react-dom_82bb97c6._.js",
-      "static/chunks/node_modules_1b7400a8._.js",
-      "static/chunks/[root of the server]__135bbb64._.js",
-      "static/chunks/[root of the server]__e229761f._.css",
-      "static/chunks/src_pages__app_5771e187._.js",
-      "static/chunks/src_pages__app_29f322f4._.js"
-    ],
-    "/_error": [
-      "static/chunks/[root of the server]__73499ecc._.js",
-      "static/chunks/node_modules_react-dom_82bb97c6._.js",
-      "static/chunks/node_modules_beb00741._.js",
-      "static/chunks/[root of the server]__ca38f087._.js",
-      "static/chunks/src_pages__error_5771e187._.js",
-      "static/chunks/src_pages__error_bac399eb._.js"
-    ],
-    "/products": [
-      "static/chunks/node_modules_next_426ba2af._.js",
-      "static/chunks/node_modules_react-dom_82bb97c6._.js",
-      "static/chunks/node_modules_a82cc854._.js",
-      "static/chunks/[root of the server]__771e5565._.js",
-      "static/chunks/src_pages_products_index_tsx_5771e187._.js",
-      "static/chunks/src_pages_products_index_tsx_2ba79888._.js"
-    ],
-    "/products/[id]": [
-      "static/chunks/node_modules_next_813caa2e._.js",
-      "static/chunks/node_modules_react-dom_82bb97c6._.js",
-      "static/chunks/node_modules_1b7400a8._.js",
-      "static/chunks/[root of the server]__5796ace5._.js",
-      "static/chunks/[root of the server]__7d854fdd._.css",
-      "static/chunks/src_pages_products_[id]_tsx_5771e187._.js",
-      "static/chunks/src_pages_products_[id]_tsx_4dc2147d._.js"
-    ],
-    "/products/server": [
-      "static/chunks/node_modules_next_20c65739._.js",
-      "static/chunks/node_modules_react-dom_82bb97c6._.js",
-      "static/chunks/node_modules_1b7400a8._.js",
-      "static/chunks/[root of the server]__b7b7de78._.js",
-      "static/chunks/src_pages_products_server_tsx_5771e187._.js",
-      "static/chunks/src_pages_products_server_tsx_00e7094a._.js"
-    ],
-    "/products/static": [
-      "static/chunks/node_modules_next_20c65739._.js",
-      "static/chunks/node_modules_react-dom_82bb97c6._.js",
-      "static/chunks/node_modules_1b7400a8._.js",
-      "static/chunks/[root of the server]__688fb94e._.js",
-      "static/chunks/src_pages_products_static_tsx_5771e187._.js",
-      "static/chunks/src_pages_products_static_tsx_887a01c2._.js"
-    ]
+    "/_app": []
   },
   "devFiles": [],
   "ampDevFiles": [],
