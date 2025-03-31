@@ -851,6 +851,13 @@
   }
 
   @media (width >= 80rem) {
+    .xl\:size-\[592px\] {
+      width: 592px;
+      height: 592px;
+    }
+  }
+
+  @media (width >= 80rem) {
     .xl\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }

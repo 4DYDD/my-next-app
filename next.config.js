@@ -20,14 +20,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*", // Proxy untuk API lokal
-        destination: "http://localhost:3000/api/:path*", // Arahkan ke server lokal
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;

@@ -467,10 +467,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$toIndonesiaC
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$swr__$5b$external$5d$__$28$swr$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/swr [external] (swr, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$swr$2f$fetcher$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/swr/fetcher.ts [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$externals$5d2f$swr__$5b$external$5d$__$28$swr$2c$__esm_import$29$__
 ]);
 ([__TURBOPACK__imported__module__$5b$externals$5d2f$swr__$5b$external$5d$__$28$swr$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__);
+;
 ;
 ;
 ;
@@ -510,12 +512,12 @@ function Products() {
                     children: "Products Page"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/products/index.tsx",
-                    lineNumber: 44,
+                    lineNumber: 45,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/products/index.tsx",
-                lineNumber: 43,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
@@ -523,13 +525,14 @@ function Products() {
                 children: "Products"
             }, void 0, false, {
                 fileName: "[project]/src/pages/products/index.tsx",
-                lineNumber: 47,
+                lineNumber: 48,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                 className: "container grid md:grid-cols-2 w-[95%] xl:grid-cols-3 overflow-y-auto h-[65vh] scrollbar-custom",
-                children: !isLoading ? products?.map((value, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["Fragment"], {
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
+                children: !isLoading && (products ?? []).length > 0 ? products?.map((value, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["Fragment"], {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            href: `/products/${value.id}`,
                             className: "m-3 p-3 flex-col flexc gap-1 rounded-xl shadow shadow-gray-400 outline-1 outline-gray-300",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -544,17 +547,17 @@ function Products() {
                                             alt: `sepatu-${value.name}`
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/products/index.tsx",
-                                            lineNumber: 56,
+                                            lineNumber: 60,
                                             columnNumber: 23
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 55,
+                                        lineNumber: 59,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 58,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -564,12 +567,12 @@ function Products() {
                                         children: value.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 66,
+                                        lineNumber: 70,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 65,
+                                    lineNumber: 69,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -579,12 +582,12 @@ function Products() {
                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$toIndonesiaCurrency$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["toIndonesiaCurrency"])(value.price)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 75,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 70,
+                                    lineNumber: 74,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -594,23 +597,23 @@ function Products() {
                                         children: value.category
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 76,
+                                        lineNumber: 80,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 75,
+                                    lineNumber: 79,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/products/index.tsx",
-                            lineNumber: 53,
+                            lineNumber: 54,
                             columnNumber: 17
                         }, this)
                     }, `product-${index}`, false, {
                         fileName: "[project]/src/pages/products/index.tsx",
-                        lineNumber: 52,
+                        lineNumber: 53,
                         columnNumber: 15
                     }, this)) : [
                     1,
@@ -630,17 +633,17 @@ function Products() {
                                             className: "bg-gray-400 animate-pulse size-72 xl:size-80"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/products/index.tsx",
-                                            lineNumber: 89,
+                                            lineNumber: 93,
                                             columnNumber: 23
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 92,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 87,
+                                    lineNumber: 91,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -649,12 +652,12 @@ function Products() {
                                         className: "flexc !justify-start w-full animate-pulse bg-gray-400 h-6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 93,
+                                        lineNumber: 97,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 92,
+                                    lineNumber: 96,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -663,12 +666,12 @@ function Products() {
                                         className: "flexc !justify-start w-full animate-pulse bg-gray-400 h-6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 96,
+                                        lineNumber: 100,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 99,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -677,28 +680,28 @@ function Products() {
                                         className: "flexc !justify-start w-full animate-pulse bg-gray-400 h-6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/products/index.tsx",
-                                        lineNumber: 99,
+                                        lineNumber: 103,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/index.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 102,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/products/index.tsx",
-                            lineNumber: 86,
+                            lineNumber: 90,
                             columnNumber: 17
                         }, this)
                     }, `skeleton-${index}`, false, {
                         fileName: "[project]/src/pages/products/index.tsx",
-                        lineNumber: 85,
+                        lineNumber: 89,
                         columnNumber: 15
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/pages/products/index.tsx",
-                lineNumber: 49,
+                lineNumber: 50,
                 columnNumber: 7
             }, this)
         ]

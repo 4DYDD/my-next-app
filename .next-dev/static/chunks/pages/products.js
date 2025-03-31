@@ -1,8 +1,8 @@
 __turbopack_load_page_chunks__("/products", [
-  "static/chunks/node_modules_next_813caa2e._.js",
+  "static/chunks/node_modules_next_426ba2af._.js",
   "static/chunks/node_modules_react-dom_82bb97c6._.js",
   "static/chunks/node_modules_a82cc854._.js",
   "static/chunks/[root of the server]__771e5565._.js",
   "static/chunks/src_pages_products_index_tsx_5771e187._.js",
-  "static/chunks/src_pages_products_index_tsx_19616489._.js"
+  "static/chunks/src_pages_products_index_tsx_2ba79888._.js"
 ])

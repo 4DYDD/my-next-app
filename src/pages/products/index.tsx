@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
 import React, { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
-import { Data } from "../api/products";
+import { Data } from "../api/[[...products]]";
 import { toIndonesiaCurrency } from "@/utils/toIndonesiaCurrency";
 import Image from "next/image";
 import useSWR from "swr";
 import { fetcher } from "@/lib/swr/fetcher";
 import { DataType } from "@/types/datatype";
+import Link from "next/link";
 
 function Products() {
   const [isLogin, setIsLogin] = useState<Boolean>(true);
@@ -47,10 +48,13 @@ function Products() {
       <h1 className="font-bold text-3xl mb-5">Products</h1>
 
       <div className="container grid md:grid-cols-2 w-[95%] xl:grid-cols-3 overflow-y-auto h-[65vh] scrollbar-custom">
-        {!isLoading
+        {!isLoading && (products ?? []).length > 0
           ? products?.map((value, index) => (
               <Fragment key={`product-${index}`}>
-                <ul className="m-3 p-3 flex-col flexc gap-1 rounded-xl shadow shadow-gray-400 outline-1 outline-gray-300">
+                <Link
+                  href={`/products/${value.id}`}
+                  className="m-3 p-3 flex-col flexc gap-1 rounded-xl shadow shadow-gray-400 outline-1 outline-gray-300"
+                >
                   <li className=" flexc !justify-start w-full mb-5">
                     <div className="flexc w-full overflow-hidden rounded-xl">
                       <Image
@@ -77,7 +81,7 @@ function Products() {
                       {value.category}
                     </span>
                   </li>
-                </ul>
+                </Link>
               </Fragment>
             ))
           : // SKELETONNYA
