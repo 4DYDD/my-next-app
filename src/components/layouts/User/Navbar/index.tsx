@@ -21,9 +21,9 @@ function Navbar() {
 
   const { data, status } = useSession() as Session;
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <nav className="bg-gray-900 text-white w-full">

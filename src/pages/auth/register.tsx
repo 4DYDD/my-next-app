@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
@@ -76,13 +76,42 @@ const styles = {
 
 function RegisterPage() {
   const { push } = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: any) => {
+    if (isLoading) return;
     event.preventDefault();
-    alert("Fitur Register Belum Tersedia!");
-    alert("Tapi boleh lah sementara di redirect ke ( /products )");
 
-    push("/products");
+    setIsLoading(true);
+    setError("");
+
+    const data = {
+      fullname: event.target.fullname.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+
+    const result = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (result.status === 200) {
+      await push("/auth/login");
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+      setError(
+        result.status === 400 ? "Email Already Exists!" : "Register Error!"
+      );
+    }
+
+    console.log(data);
+    // alert("Tapi boleh lah sementara di redirect ke ( /products )");
   };
 
   return (
@@ -95,7 +124,27 @@ function RegisterPage() {
         <div style={styles.card}>
           <h1 style={styles.title}>Register</h1>
 
+          {error && (
+            <>
+              <h2 className="text-red-500 font-bold text-center mb-3">
+                {error}
+              </h2>
+            </>
+          )}
+
           <form onSubmit={handleSubmit} className={inter.className}>
+            <div style={styles.formGroup}>
+              <label htmlFor="fullname" style={styles.label}>
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="fullname"
+                className={inter.className}
+                style={styles.input}
+                placeholder="Enter your full name"
+              />
+            </div>
             <div style={styles.formGroup}>
               <label htmlFor="email" style={styles.label}>
                 Email
@@ -123,6 +172,7 @@ function RegisterPage() {
             <button
               type="submit"
               className={inter.className}
+              disabled={isLoading}
               style={styles.button}
               onMouseOver={(e) =>
                 (e.currentTarget.style.backgroundColor = "#2563eb")
@@ -131,7 +181,7 @@ function RegisterPage() {
                 (e.currentTarget.style.backgroundColor = "#3b82f6")
               }
             >
-              Register
+              {isLoading ? "Loading..." : "Register"}
             </button>
           </form>
 

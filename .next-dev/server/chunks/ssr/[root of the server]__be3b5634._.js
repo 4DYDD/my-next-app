@@ -66,6 +66,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link
 ;
 function Navbar() {
     const { data, status } = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$next$2d$auth$2f$react__$5b$external$5d$__$28$next$2d$auth$2f$react$2c$__cjs$29$__["useSession"])();
+    // useEffect(() => {
+    //   console.log(data);
+    // }, [data]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
         className: "bg-gray-900 text-white w-full",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -82,7 +85,7 @@ function Navbar() {
                             className: "rounded-full w-16"
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 29,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -90,13 +93,13 @@ function Navbar() {
                             children: "My App"
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 36,
+                            lineNumber: 40,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                    lineNumber: 28,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
@@ -109,12 +112,12 @@ function Navbar() {
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 42,
+                                lineNumber: 46,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 41,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -124,12 +127,12 @@ function Navbar() {
                                 children: "About"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 50,
+                                lineNumber: 54,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 49,
+                            lineNumber: 53,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -139,12 +142,12 @@ function Navbar() {
                                 children: "Contact"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 58,
+                                lineNumber: 62,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 57,
+                            lineNumber: 61,
                             columnNumber: 11
                         }, this),
                         data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -153,12 +156,12 @@ function Navbar() {
                                 children: `name ==> ${data?.user?.fullname}`
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 67,
+                                lineNumber: 71,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 66,
+                            lineNumber: 70,
                             columnNumber: 13
                         }, this) : "",
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -167,7 +170,7 @@ function Navbar() {
                                 children: "Loading"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 76,
+                                lineNumber: 80,
                                 columnNumber: 15
                             }, this) : data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
@@ -177,7 +180,7 @@ function Navbar() {
                                 children: "Sign Out"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 78,
+                                lineNumber: 82,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
@@ -187,29 +190,29 @@ function Navbar() {
                                 children: "Sign In"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 87,
+                                lineNumber: 91,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 74,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                    lineNumber: 40,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-            lineNumber: 26,
+            lineNumber: 30,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-        lineNumber: 25,
+        lineNumber: 29,
         columnNumber: 5
     }, this);
 }

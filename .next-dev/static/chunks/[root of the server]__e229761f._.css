@@ -769,6 +769,10 @@
     color: var(--color-gray-600);
   }
 
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
+
   .text-white {
     color: var(--color-white);
   }
