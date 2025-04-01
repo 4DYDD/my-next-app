@@ -17,8 +17,6 @@ const disableNavbar = ["/auth/login", "/auth/register", "/404"];
 function User({ children }: UserProps) {
   const { pathname } = useRouter();
 
-  console.log("Current pathname:", pathname);
-
   return (
     <main className={`${inter.className} h-screen flexc flex-col`}>
       {!disableNavbar.includes(pathname) && <Navbar />}

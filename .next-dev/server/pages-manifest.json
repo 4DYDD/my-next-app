@@ -1,3 +1,11 @@
 {
-  "/api/[[...products]]": "pages/api/[[...products]].js"
+  "/": "pages/index.js",
+  "/404": "pages/404.js",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/api/[[...products]]": "pages/api/[[...products]].js",
+  "/products": "pages/products.js",
+  "/products/[id]": "pages/products/[id].js",
+  "/shop/[[...slug]]": "pages/shop/[[...slug]].js"
 }
