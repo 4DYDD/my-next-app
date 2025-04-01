@@ -569,6 +569,7 @@ function DetailProduct({ product }) {
     //   fetcher
     // );
     // const product: DataType | null = data?.data;
+    console.log(product);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$head$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -576,12 +577,12 @@ function DetailProduct({ product }) {
                     children: "Detail Product Page"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/products/[id].tsx",
-                    lineNumber: 41,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/products/[id].tsx",
-                lineNumber: 40,
+                lineNumber: 42,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -601,17 +602,17 @@ function DetailProduct({ product }) {
                                     alt: `sepatu-${product.name}`
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/products/[id].tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 108,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/products/[id].tsx",
-                                lineNumber: 105,
+                                lineNumber: 107,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/products/[id].tsx",
-                            lineNumber: 104,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -621,12 +622,12 @@ function DetailProduct({ product }) {
                                 children: product.name
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/products/[id].tsx",
-                                lineNumber: 116,
+                                lineNumber: 118,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/products/[id].tsx",
-                            lineNumber: 115,
+                            lineNumber: 117,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -636,12 +637,12 @@ function DetailProduct({ product }) {
                                 children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$toIndonesiaCurrency$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["toIndonesiaCurrency"])(product.price)
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/products/[id].tsx",
-                                lineNumber: 121,
+                                lineNumber: 123,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/products/[id].tsx",
-                            lineNumber: 120,
+                            lineNumber: 122,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -651,23 +652,23 @@ function DetailProduct({ product }) {
                                 children: product.category
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/products/[id].tsx",
-                                lineNumber: 126,
+                                lineNumber: 128,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/products/[id].tsx",
-                            lineNumber: 125,
+                            lineNumber: 127,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/products/[id].tsx",
-                    lineNumber: 103,
+                    lineNumber: 105,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/products/[id].tsx",
-                lineNumber: 44,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]
