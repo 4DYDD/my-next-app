@@ -87,12 +87,12 @@ function RegisterPage() {
     setError("");
 
     const data = {
-      fullname: event.target.fullname.value,
       email: event.target.email.value,
+      fullname: event.target.fullname.value,
       password: event.target.password.value,
     };
 
-    const result = await fetch("/api/register", {
+    const result: any = await fetch("/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,16 +102,17 @@ function RegisterPage() {
 
     if (result.status === 200) {
       await push("/auth/login");
-      setIsLoading(false);
-    } else {
-      setIsLoading(false);
-      setError(
-        result.status === 400 ? "Email Already Exists!" : "Register Error!"
-      );
-    }
 
-    console.log(data);
-    // alert("Tapi boleh lah sementara di redirect ke ( /products )");
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    } else {
+      const errornya = await result.json();
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+      setError(errornya.message);
+    }
   };
 
   return (

@@ -77,7 +77,7 @@ function Navbar() {
           )}
           <li>
             {status === "loading" ? (
-              <button className="text-gray-400 transall">Loading</button>
+              <button className="text-gray-400 transall">Loading...</button>
             ) : data ? (
               <button
                 onClick={() => {

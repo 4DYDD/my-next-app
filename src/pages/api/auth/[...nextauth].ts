@@ -1,5 +1,8 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import { signIn } from "@/lib/firebase/service";
+import { compare } from "bcrypt";
+import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { UserType } from "../../../types/usertype";
 
 const authOptions: NextAuthOptions = {
   session: {
@@ -12,23 +15,21 @@ const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email" },
-        fullname: { label: "Fullname", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        interface userKu {
-          id?: number;
-          email: string;
-          fullname: string;
-          password: string;
-        }
+        const { email, password } = credentials as UserType;
 
-        const { email, fullname, password } = credentials as userKu;
-
-        const user: userKu = { id: 1, email, fullname, password };
+        // const user: UserType = { id: 1, email, fullname, password };
+        const user: UserType | null = await signIn({ email, password });
 
         if (user) {
-          return user as any;
+          const passwordConfirm = await compare(password, user.password);
+          if (passwordConfirm) {
+            return user as any;
+          } else {
+            return null;
+          }
         } else {
           return null;
         }
@@ -37,18 +38,35 @@ const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     jwt({ token, account, profile, user }: any) {
+      const theUser: UserType = user as UserType;
+
       if (account?.provider === "credentials") {
-        token.email = user.email;
-        token.fullname = user.fullname;
+        token.email = theUser.email;
+        token.fullname = theUser.fullname;
+        token.role = theUser.role;
       }
       return token;
     },
     async session({ session, token }: any) {
-      if ("email" in token) session.user.email = token.email;
-      if ("fullname" in token) session.user.fullname = token.fullname;
+      interface mySession extends Session {
+        user: {
+          email: string;
+          fullname: string;
+          role: string;
+        };
+      }
 
-      return session;
+      const theSession = session as mySession;
+
+      if ("email" in token) theSession.user.email = token.email;
+      if ("fullname" in token) theSession.user.fullname = token.fullname;
+      if ("role" in token) theSession.user.role = token.role;
+
+      return theSession;
     },
+  },
+  pages: {
+    signIn: "/auth/login",
   },
 };
 

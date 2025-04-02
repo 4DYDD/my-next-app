@@ -1,8 +1,9 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { signIn } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -75,14 +76,44 @@ const styles = {
 };
 
 function LoginPage() {
-  const { push } = useRouter();
+  const { push, query } = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const callbackUrl: any = query.callbackUrl || "/";
+
+  const handleSubmit = async (event: any) => {
+    if (isLoading) return;
     event.preventDefault();
-    alert("Fitur Login Belum Tersedia!");
-    alert("Tapi boleh lah sementara di redirect ke ( /products )");
 
-    push("/products");
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: event.target.email.value,
+        password: event.target.password.value,
+        callbackUrl,
+      });
+
+      if (!res?.error) {
+        await push(callbackUrl);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          setIsLoading(false);
+          setError("Email or Password is Incorrect!");
+        }, 1000);
+      }
+    } catch (error: any) {
+      setTimeout(() => {
+        setIsLoading(false);
+        setError("Email or Password is Incorrect!");
+      }, 1000);
+    }
   };
 
   return (
@@ -94,6 +125,14 @@ function LoginPage() {
       <div className={inter.className} style={styles.container}>
         <div style={styles.card}>
           <h1 style={styles.title}>Login</h1>
+
+          {error && (
+            <>
+              <h2 className="text-red-500 font-bold text-center mb-3">
+                {error}
+              </h2>
+            </>
+          )}
 
           <form onSubmit={handleSubmit} className={inter.className}>
             <div style={styles.formGroup}>
@@ -123,6 +162,7 @@ function LoginPage() {
             <button
               type="submit"
               className={inter.className}
+              disabled={isLoading}
               style={styles.button}
               onMouseOver={(e) =>
                 (e.currentTarget.style.backgroundColor = "#2563eb")
@@ -131,7 +171,7 @@ function LoginPage() {
                 (e.currentTarget.style.backgroundColor = "#3b82f6")
               }
             >
-              Login
+              {isLoading ? "Loading..." : "Login"}
             </button>
           </form>
 

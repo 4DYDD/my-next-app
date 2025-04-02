@@ -88,6 +88,9 @@ const authOptions = {
             if ("fullname" in token) session.user.fullname = token.fullname;
             return session;
         }
+    },
+    pages: {
+        signIn: "/auth/login"
     }
 };
 const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$next$2d$auth__$5b$external$5d$__$28$next$2d$auth$2c$__cjs$29$__["default"])(authOptions);

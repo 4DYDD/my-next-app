@@ -29,6 +29,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/esm/server/web/spec-extension/response.js [middleware-edge] (ecmascript)");
 ;
 ;
+const onlyAdmin = [
+    "/admin"
+];
 function withAuth(middleware, requireAuth = []) {
     return async (req, next)=>{
         const pathname = req.nextUrl.pathname;
@@ -38,11 +41,15 @@ function withAuth(middleware, requireAuth = []) {
                 secret: process.env.NEXTAUTH_SECRET
             });
             if (!token) {
-                const url = new URL("/", req.url);
+                const url = new URL("/auth/login", req.url);
+                url.searchParams.set("callbackUrl", encodeURI(req.url));
                 return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(url);
             }
-            return middleware(req, next);
+            if (token.role !== "admin" && onlyAdmin.includes(pathname)) {
+                return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL("/", req.url));
+            }
         }
+        return middleware(req, next);
     };
 }
 }}),
@@ -65,7 +72,8 @@ function mainMiddleware(req) {
     return res;
 }
 const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$middlewares$2f$withAuth$2e$ts__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["default"])(mainMiddleware, [
-    "/profile"
+    "/profile",
+    "/admin"
 ]);
 }}),
 }]);

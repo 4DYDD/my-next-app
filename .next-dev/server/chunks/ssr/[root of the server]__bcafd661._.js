@@ -230,7 +230,7 @@ function Navbar() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                             children: status === "loading" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                 className: "text-gray-400 transall",
-                                children: "Loading"
+                                children: "Loading..."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
                                 lineNumber: 80,
@@ -613,8 +613,8 @@ function RegisterPage() {
         setIsLoading(true);
         setError("");
         const data = {
-            fullname: event.target.fullname.value,
             email: event.target.email.value,
+            fullname: event.target.fullname.value,
             password: event.target.password.value
         };
         const result = await fetch("/api/register", {
@@ -626,13 +626,16 @@ function RegisterPage() {
         });
         if (result.status === 200) {
             await push("/auth/login");
-            setIsLoading(false);
+            setTimeout(()=>{
+                setIsLoading(false);
+            }, 1000);
         } else {
-            setIsLoading(false);
-            setError(result.status === 400 ? "Email Already Exists!" : "Register Error!");
+            const errornya = await result.json();
+            setTimeout(()=>{
+                setIsLoading(false);
+            }, 1000);
+            setError(errornya.message);
         }
-        console.log(data);
-    // alert("Tapi boleh lah sementara di redirect ke ( /products )");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
         children: [
@@ -641,12 +644,12 @@ function RegisterPage() {
                     children: "Register Page"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register.tsx",
-                    lineNumber: 120,
+                    lineNumber: 121,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/auth/register.tsx",
-                lineNumber: 119,
+                lineNumber: 120,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -660,7 +663,7 @@ function RegisterPage() {
                             children: "Register"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/auth/register.tsx",
-                            lineNumber: 125,
+                            lineNumber: 126,
                             columnNumber: 11
                         }, this),
                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
@@ -669,7 +672,7 @@ function RegisterPage() {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/auth/register.tsx",
-                                lineNumber: 129,
+                                lineNumber: 130,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false),
@@ -686,7 +689,7 @@ function RegisterPage() {
                                             children: "Full Name"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/register.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 138,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -697,13 +700,13 @@ function RegisterPage() {
                                             placeholder: "Enter your full name"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/register.tsx",
-                                            lineNumber: 140,
+                                            lineNumber: 141,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/auth/register.tsx",
-                                    lineNumber: 136,
+                                    lineNumber: 137,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -715,7 +718,7 @@ function RegisterPage() {
                                             children: "Email"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/register.tsx",
-                                            lineNumber: 149,
+                                            lineNumber: 150,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -726,13 +729,13 @@ function RegisterPage() {
                                             placeholder: "Enter your email"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/register.tsx",
-                                            lineNumber: 152,
+                                            lineNumber: 153,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/auth/register.tsx",
-                                    lineNumber: 148,
+                                    lineNumber: 149,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -744,7 +747,7 @@ function RegisterPage() {
                                             children: "Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/register.tsx",
-                                            lineNumber: 161,
+                                            lineNumber: 162,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -755,13 +758,13 @@ function RegisterPage() {
                                             placeholder: "Enter your password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/register.tsx",
-                                            lineNumber: 164,
+                                            lineNumber: 165,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/auth/register.tsx",
-                                    lineNumber: 160,
+                                    lineNumber: 161,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -774,13 +777,13 @@ function RegisterPage() {
                                     children: isLoading ? "Loading..." : "Register"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register.tsx",
-                                    lineNumber: 172,
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register.tsx",
-                            lineNumber: 135,
+                            lineNumber: 136,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -794,24 +797,24 @@ function RegisterPage() {
                                     children: "login disini"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register.tsx",
-                                    lineNumber: 190,
+                                    lineNumber: 191,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register.tsx",
-                            lineNumber: 188,
+                            lineNumber: 189,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/auth/register.tsx",
-                    lineNumber: 124,
+                    lineNumber: 125,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/auth/register.tsx",
-                lineNumber: 123,
+                lineNumber: 124,
                 columnNumber: 7
             }, this)
         ]

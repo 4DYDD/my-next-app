@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import app from "./init";
 import bcrypt from "bcrypt";
+import { UserType } from "@/types/usertype";
 
 const firestore = getFirestore(app);
 
@@ -30,6 +31,34 @@ export async function retrieveDataById(collectionName: string, id: string) {
   return data;
 }
 
+export async function signIn(userData: {
+  email: string;
+  password: string;
+}): Promise<UserType | null> {
+  if (userData.email === "") {
+    return null;
+  }
+  if (userData.password === "") {
+    return null;
+  }
+
+  const q = query(
+    collection(firestore, "users"),
+    where("email", "==", userData.email)
+  );
+  const snapshot = await getDocs(q);
+
+  const data: Array<UserType> = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    email: doc.data().email,
+    fullname: doc.data().fullname,
+    password: doc.data().password,
+    role: doc.data().role,
+  }));
+
+  return data[0] || null;
+}
+
 export async function signUp(
   userData: {
     email: string;
@@ -39,6 +68,19 @@ export async function signUp(
   },
   callback: Function
 ) {
+  if (userData.fullname === "") {
+    callback({ status: false, message: "Fullname is Required!" });
+    return;
+  }
+  if (userData.email === "") {
+    callback({ status: false, message: "Email is Required!" });
+    return;
+  }
+  if (userData.password === "") {
+    callback({ status: false, message: "Password is Required!" });
+    return;
+  }
+
   const q = query(
     collection(firestore, "users"),
     where("email", "==", userData.email)

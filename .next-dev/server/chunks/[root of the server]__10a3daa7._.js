@@ -75,6 +75,7 @@ __turbopack_async_module__(async (__turbopack_handle_async_dependencies__, __tur
 __turbopack_context__.s({
     "retrieveData": (()=>retrieveData),
     "retrieveDataById": (()=>retrieveDataById),
+    "signIn": (()=>signIn),
     "signUp": (()=>signUp)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/firestore [external] (firebase/firestore, esm_import)");
@@ -102,7 +103,46 @@ async function retrieveDataById(collectionName, id) {
     const data = snapshot.data();
     return data;
 }
+async function signIn(userData) {
+    if (userData.email === "") {
+        return null;
+    }
+    if (userData.password === "") {
+        return null;
+    }
+    const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email));
+    const snapshot = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q);
+    const data = snapshot.docs.map((doc)=>({
+            id: doc.id,
+            email: doc.data().email,
+            fullname: doc.data().fullname,
+            password: doc.data().password,
+            role: doc.data().role
+        }));
+    return data[0] || null;
+}
 async function signUp(userData, callback) {
+    if (userData.fullname === "") {
+        callback({
+            status: false,
+            message: "Fullname is Required!"
+        });
+        return;
+    }
+    if (userData.email === "") {
+        callback({
+            status: false,
+            message: "Email is Required!"
+        });
+        return;
+    }
+    if (userData.password === "") {
+        callback({
+            status: false,
+            message: "Password is Required!"
+        });
+        return;
+    }
     const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email));
     const snapshot = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q);
     const data = snapshot.docs.map((doc)=>({
