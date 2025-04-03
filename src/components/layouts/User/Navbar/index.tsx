@@ -9,11 +9,11 @@ function Navbar() {
       accessToken?: string;
       expires?: string;
       user?: {
-        id?: string;
         email?: string;
         fullname?: string;
         name?: string;
         image?: string;
+        role?: string;
       };
     } | null;
     status: "loading" | "authenticated" | "unauthenticated";
@@ -69,7 +69,29 @@ function Navbar() {
           {data ? (
             <li>
               <div className="hover:text-gray-400 transall clicked flexc">
-                {`name ==> ${data?.user?.fullname}`}
+                <div className="flexc gap-3 relative">
+                  <span className="w-8 flexc relative">
+                    <Image
+                      width={576}
+                      height={576}
+                      className="w-8 h-8 rounded-full transcenter outline outline-white"
+                      src={data?.user?.image || ""}
+                      alt={data?.user?.fullname || ""}
+                    />
+                  </span>
+
+                  <span>{data?.user?.fullname}</span>
+                  <span>{`-->`}</span>
+                  <span
+                    className={`font-bold ${
+                      data?.user?.role === "admin"
+                        ? "text-yellow-500"
+                        : "text-sky-500"
+                    }`}
+                  >
+                    {data?.user?.role}
+                  </span>
+                </div>
               </div>
             </li>
           ) : (

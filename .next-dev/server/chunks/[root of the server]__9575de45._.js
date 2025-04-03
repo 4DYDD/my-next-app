@@ -76,6 +76,7 @@ __turbopack_context__.s({
     "retrieveData": (()=>retrieveData),
     "retrieveDataById": (()=>retrieveDataById),
     "signIn": (()=>signIn),
+    "signInWithGoogle": (()=>signInWithGoogle),
     "signUp": (()=>signUp)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/firestore [external] (firebase/firestore, esm_import)");
@@ -110,13 +111,15 @@ async function signIn(userData) {
     if (userData.password === "") {
         return null;
     }
-    const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email));
+    const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("type", "==", "credential"));
     const snapshot = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q);
     const data = snapshot.docs.map((doc)=>({
             id: doc.id,
             email: doc.data().email,
             fullname: doc.data().fullname,
             password: doc.data().password,
+            image: doc.data().image || "",
+            type: doc.data().type || "",
             role: doc.data().role
         }));
     return data[0] || null;
@@ -156,6 +159,7 @@ async function signUp(userData, callback) {
         });
     } else {
         userData.password = await __TURBOPACK__imported__module__$5b$externals$5d2f$bcrypt__$5b$external$5d$__$28$bcrypt$2c$__cjs$29$__["default"].hash(userData.password, 10);
+        userData.type = "credential";
         userData.role = "member";
         await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), userData).then(()=>{
             callback({
@@ -166,6 +170,43 @@ async function signUp(userData, callback) {
             callback({
                 status: false,
                 message: error
+            });
+        });
+    }
+}
+async function signInWithGoogle(userData, callback) {
+    const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email));
+    const snapshot = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q);
+    const data = snapshot.docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data()
+        }));
+    if (data.length > 0) {
+        userData.role = data[0].role;
+        await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["updateDoc"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["doc"])(firestore, "users", data[0].id), userData).then(()=>{
+            callback({
+                status: true,
+                message: "Sign In with Google Success!",
+                data: userData
+            });
+        }).catch(()=>{
+            callback({
+                status: false,
+                message: "Sign In with Google Failed!"
+            });
+        });
+    } else {
+        userData.role = "member";
+        await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), userData).then(()=>{
+            callback({
+                status: true,
+                message: "Sign In with Google Success!",
+                data: userData
+            });
+        }).catch(()=>{
+            callback({
+                status: false,
+                message: "Sign In with Google Failed!"
             });
         });
     }

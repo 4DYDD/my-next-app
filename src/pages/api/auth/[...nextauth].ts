@@ -1,8 +1,9 @@
-import { signIn } from "@/lib/firebase/service";
+import { signIn, signInWithGoogle } from "@/lib/firebase/service";
 import { compare } from "bcrypt";
 import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { UserType } from "../../../types/usertype";
+import GoogleProvider from "next-auth/providers/google";
 
 const authOptions: NextAuthOptions = {
   session: {
@@ -35,16 +36,42 @@ const authOptions: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOGGLE_OAUTH_CLIENT_ID || "",
+      clientSecret: process.env.GOGGLE_OAUTH_CLIENT_SECRET || "",
+    }),
   ],
   callbacks: {
-    jwt({ token, account, profile, user }: any) {
+    async jwt({ token, account, profile, user }: any) {
       const theUser: UserType = user as UserType;
 
       if (account?.provider === "credentials") {
         token.email = theUser.email;
         token.fullname = theUser.fullname;
+        token.type = "credential";
+        token.image = theUser.image || "";
         token.role = theUser.role;
       }
+
+      if (account?.provider === "google") {
+        const data = {
+          email: user.email,
+          fullname: user.name,
+          image: user.image,
+          type: "google",
+        };
+
+        await signInWithGoogle(data, (result: any) => {
+          if (result.status) {
+            token.email = result.data.email;
+            token.fullname = result.data.fullname;
+            token.type = result.data.type;
+            token.image = result.data.image;
+            token.role = result.data.role;
+          }
+        });
+      }
+
       return token;
     },
     async session({ session, token }: any) {
@@ -52,6 +79,8 @@ const authOptions: NextAuthOptions = {
         user: {
           email: string;
           fullname: string;
+          type?: string;
+          image?: string;
           role: string;
         };
       }
@@ -60,6 +89,8 @@ const authOptions: NextAuthOptions = {
 
       if ("email" in token) theSession.user.email = token.email;
       if ("fullname" in token) theSession.user.fullname = token.fullname;
+      if ("type" in token) theSession.user.type = token.type;
+      if ("image" in token) theSession.user.image = token.image;
       if ("role" in token) theSession.user.role = token.role;
 
       return theSession;

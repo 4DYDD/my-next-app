@@ -216,7 +216,55 @@ function Navbar() {
                         data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                 className: "hover:text-gray-400 transall clicked flexc",
-                                children: `name ==> ${data?.user?.fullname}`
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "flexc gap-3 relative",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                            className: "w-8 flexc relative",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                width: 576,
+                                                height: 576,
+                                                className: "w-8 h-8 rounded-full transcenter outline outline-white",
+                                                src: data?.user?.image || "",
+                                                alt: data?.user?.fullname || ""
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
+                                                lineNumber: 74,
+                                                columnNumber: 21
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
+                                            lineNumber: 73,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                            children: data?.user?.fullname
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
+                                            lineNumber: 83,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                            children: `-->`
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
+                                            lineNumber: 84,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                            className: `font-bold ${data?.user?.role === "admin" ? "text-yellow-500" : "text-sky-500"}`,
+                                            children: data?.user?.role
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
+                                            lineNumber: 85,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
+                                    lineNumber: 72,
+                                    columnNumber: 17
+                                }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
                                 lineNumber: 71,
@@ -233,7 +281,7 @@ function Navbar() {
                                 children: "Loading..."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 80,
+                                lineNumber: 102,
                                 columnNumber: 15
                             }, this) : data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
@@ -243,7 +291,7 @@ function Navbar() {
                                 children: "Sign Out"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 82,
+                                lineNumber: 104,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
@@ -253,12 +301,12 @@ function Navbar() {
                                 children: "Sign In"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                                lineNumber: 91,
+                                lineNumber: 113,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/layouts/User/Navbar/index.tsx",
-                            lineNumber: 78,
+                            lineNumber: 100,
                             columnNumber: 11
                         }, this)
                     ]
@@ -538,6 +586,7 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$next$2d$auth$2f$react__$5b
 ;
 ;
 ;
+;
 const styles = {
     container: {
         display: "flex",
@@ -640,6 +689,27 @@ function LoginPage() {
             }, 1000);
         }
     };
+    const handleSignInWithGoogle = async (event)=>{
+        if (isLoading) return;
+        event.preventDefault();
+        setIsLoading(true);
+        setError("");
+        try {
+            const res = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$next$2d$auth$2f$react__$5b$external$5d$__$28$next$2d$auth$2f$react$2c$__cjs$29$__["signIn"])("google", {
+                callbackUrl,
+                redirect: false
+            });
+            setTimeout(()=>{
+                setIsLoading(false);
+                if (res?.error) setError("Sign In with Google Failed!");
+            }, 1000);
+        } catch (error) {
+            setTimeout(()=>{
+                setIsLoading(false);
+                setError("Sign In with Google Failed!");
+            }, 1000);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$head$2e$js__$5b$external$5d$__$28$next$2f$head$2e$js$2c$__cjs$29$__["default"], {
@@ -647,12 +717,12 @@ function LoginPage() {
                     children: "Login Page"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/login.tsx",
-                    lineNumber: 122,
+                    lineNumber: 145,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/auth/login.tsx",
-                lineNumber: 121,
+                lineNumber: 144,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -666,7 +736,7 @@ function LoginPage() {
                             children: "Login"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/auth/login.tsx",
-                            lineNumber: 127,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, this),
                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
@@ -675,7 +745,7 @@ function LoginPage() {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/auth/login.tsx",
-                                lineNumber: 131,
+                                lineNumber: 154,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false),
@@ -692,7 +762,7 @@ function LoginPage() {
                                             children: "Email"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/login.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 162,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -703,13 +773,13 @@ function LoginPage() {
                                             placeholder: "Enter your email"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/login.tsx",
-                                            lineNumber: 142,
+                                            lineNumber: 165,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/auth/login.tsx",
-                                    lineNumber: 138,
+                                    lineNumber: 161,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -721,7 +791,7 @@ function LoginPage() {
                                             children: "Password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/login.tsx",
-                                            lineNumber: 151,
+                                            lineNumber: 174,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -732,32 +802,142 @@ function LoginPage() {
                                             placeholder: "Enter your password"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/auth/login.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 177,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/auth/login.tsx",
-                                    lineNumber: 150,
+                                    lineNumber: 173,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                     type: "submit",
                                     className: __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$inter_603202e2$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"].className,
                                     disabled: isLoading,
-                                    style: styles.button,
+                                    style: {
+                                        ...styles.button,
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        gap: "0.5rem",
+                                        textAlign: "center",
+                                        transition: "all 0.1s ease-out"
+                                    },
                                     onMouseOver: (e)=>e.currentTarget.style.backgroundColor = "#2563eb",
-                                    onMouseOut: (e)=>e.currentTarget.style.backgroundColor = "#3b82f6",
-                                    children: isLoading ? "Loading..." : "Login"
+                                    onMouseOut: (e)=>{
+                                        e.currentTarget.style.backgroundColor = "#3b82f6";
+                                        e.currentTarget.style.transform = "scale(1)";
+                                    },
+                                    onMouseDown: (e)=>{
+                                        e.currentTarget.style.transform = "scale(0.98)";
+                                    },
+                                    onMouseUp: (e)=>{
+                                        e.currentTarget.style.transform = "scale(1)";
+                                    },
+                                    onFocus: (e)=>{
+                                        e.currentTarget.style.outline = "none";
+                                        e.currentTarget.style.boxShadow = "none";
+                                        e.currentTarget.style.border = "1px solid #d1d5db";
+                                    },
+                                    children: isLoading ? "Loading..." : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("i", {
+                                                className: "fa-solid fa-right-to-bracket",
+                                                style: {
+                                                    fontSize: "15px",
+                                                    color: "inherit"
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/auth/login.tsx",
+                                                lineNumber: 221,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                                children: "Login"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/auth/login.tsx",
+                                                lineNumber: 228,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/login.tsx",
-                                    lineNumber: 162,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/login.tsx",
-                            lineNumber: 137,
+                            lineNumber: 160,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                            type: "button",
+                            className: `${__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$inter_603202e2$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"].className}`,
+                            style: {
+                                ...styles.button,
+                                backgroundColor: "white",
+                                color: "#3b82f6",
+                                marginTop: "1rem",
+                                border: "1px solid #d1d5db",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: "0.5rem",
+                                textAlign: "center",
+                                transition: "all 0.1s ease-out"
+                            },
+                            onMouseOver: (e)=>{
+                                e.currentTarget.style.backgroundColor = "#2563eb"; // Darker blue for hover
+                                e.currentTarget.style.color = "white"; // White text for contrast
+                            },
+                            onMouseOut: (e)=>{
+                                e.currentTarget.style.backgroundColor = "white";
+                                e.currentTarget.style.color = "#3b82f6";
+                                e.currentTarget.style.transform = "scale(1)";
+                            },
+                            onMouseDown: (e)=>{
+                                e.currentTarget.style.transform = "scale(0.98)";
+                            },
+                            onMouseUp: (e)=>{
+                                e.currentTarget.style.transform = "scale(1)";
+                            },
+                            onClick: handleSignInWithGoogle,
+                            onFocus: (e)=>{
+                                e.currentTarget.style.outline = "none";
+                                e.currentTarget.style.boxShadow = "none";
+                                e.currentTarget.style.border = "1px solid #d1d5db";
+                            },
+                            children: isLoading ? "Loading..." : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("i", {
+                                        className: "fa-brands fa-google",
+                                        style: {
+                                            fontSize: "15px",
+                                            color: "inherit"
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/auth/login.tsx",
+                                        lineNumber: 275,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                        style: {
+                                            display: "inline-block"
+                                        },
+                                        children: "Sign in with Google"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/auth/login.tsx",
+                                        lineNumber: 282,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true)
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/auth/login.tsx",
+                            lineNumber: 233,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -771,24 +951,24 @@ function LoginPage() {
                                     children: "register disini"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/login.tsx",
-                                    lineNumber: 180,
+                                    lineNumber: 295,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/login.tsx",
-                            lineNumber: 178,
+                            lineNumber: 293,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/auth/login.tsx",
-                    lineNumber: 126,
+                    lineNumber: 149,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/auth/login.tsx",
-                lineNumber: 125,
+                lineNumber: 148,
                 columnNumber: 7
             }, this)
         ]

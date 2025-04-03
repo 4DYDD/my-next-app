@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { signIn } from "next-auth/react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -116,6 +117,28 @@ function LoginPage() {
     }
   };
 
+  const handleSignInWithGoogle = async (event: any) => {
+    if (isLoading) return;
+    event.preventDefault();
+
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const res = await signIn("google", { callbackUrl, redirect: false });
+
+      setTimeout(() => {
+        setIsLoading(false);
+        if (res?.error) setError("Sign In with Google Failed!");
+      }, 1000);
+    } catch (error: any) {
+      setTimeout(() => {
+        setIsLoading(false);
+        setError("Sign In with Google Failed!");
+      }, 1000);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -163,17 +186,109 @@ function LoginPage() {
               type="submit"
               className={inter.className}
               disabled={isLoading}
-              style={styles.button}
+              style={{
+                ...styles.button,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem",
+                textAlign: "center",
+                transition: "all 0.1s ease-out",
+              }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.backgroundColor = "#2563eb")
               }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.backgroundColor = "#3b82f6")
-              }
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = "#3b82f6";
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = "scale(0.98)";
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+              onFocus={(e) => {
+                e.currentTarget.style.outline = "none";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.border = "1px solid #d1d5db";
+              }}
             >
-              {isLoading ? "Loading..." : "Login"}
+              {isLoading ? (
+                "Loading..."
+              ) : (
+                <>
+                  <i
+                    className="fa-solid fa-right-to-bracket"
+                    style={{
+                      fontSize: "15px",
+                      color: "inherit",
+                    }}
+                  ></i>
+                  <span>Login</span>
+                </>
+              )}
             </button>
           </form>
+          <button
+            type="button"
+            className={`${inter.className}`}
+            style={{
+              ...styles.button,
+              backgroundColor: "white",
+              color: "#3b82f6",
+              marginTop: "1rem",
+              border: "1px solid #d1d5db",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+              textAlign: "center",
+              transition: "all 0.1s ease-out",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = "#2563eb"; // Darker blue for hover
+              e.currentTarget.style.color = "white"; // White text for contrast
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = "white";
+              e.currentTarget.style.color = "#3b82f6";
+              e.currentTarget.style.transform = "scale(1)";
+            }}
+            onMouseDown={(e) => {
+              e.currentTarget.style.transform = "scale(0.98)";
+            }}
+            onMouseUp={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+            }}
+            onClick={handleSignInWithGoogle}
+            onFocus={(e) => {
+              e.currentTarget.style.outline = "none";
+              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.border = "1px solid #d1d5db";
+            }}
+          >
+            {isLoading ? (
+              "Loading..."
+            ) : (
+              <>
+                <i
+                  className="fa-brands fa-google"
+                  style={{
+                    fontSize: "15px",
+                    color: "inherit",
+                  }}
+                ></i>
+                <span
+                  style={{
+                    display: "inline-block",
+                  }}
+                >
+                  Sign in with Google
+                </span>
+              </>
+            )}
+          </button>
 
           <p style={styles.linkText}>
             Belum punya akun?{" "}

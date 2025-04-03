@@ -9,7 +9,7 @@
     "static/chunks/node_modules_react-dom_82bb97c6._.js",
     "static/chunks/node_modules_4db64184._.js",
     "static/chunks/[root of the server]__44bd312a._.js",
-    "static/chunks/[next]_internal_font_google_ba7514bc._.css"
+    "static/chunks/[root of the server]__07c367e7._.css"
   ],
   "source": "entry"
 });
