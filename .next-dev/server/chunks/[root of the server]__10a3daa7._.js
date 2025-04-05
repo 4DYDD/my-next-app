@@ -104,14 +104,14 @@ async function retrieveDataById(collectionName, id) {
     const data = snapshot.data();
     return data;
 }
-async function signIn(userData) {
-    if (userData.email === "") {
+async function signIn({ email, password }) {
+    // Jika email atau password kosong maka kembalikan null
+    if (email === "" || password === "") {
         return null;
     }
-    if (userData.password === "") {
-        return null;
-    }
-    const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("type", "==", "credential"));
+    // Buat query untuk mendapatkan data user berdasarkan (type credential) dan (email yang diberikan)
+    const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", email), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("type", "==", "credential"));
+    // Dapatkan hasil query dan ubah menjadi array
     const snapshot = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q);
     const data = snapshot.docs.map((doc)=>({
             id: doc.id,
@@ -122,9 +122,11 @@ async function signIn(userData) {
             type: doc.data().type || "",
             role: doc.data().role
         }));
+    // Jika data user ditemukan maka kembalikan data user, jika tidak maka kembalikan null
     return data[0] || null;
 }
 async function signUp(userData, callback) {
+    // ===> VALIDASI INPUT AGAR TIDAK KOSONG
     if (userData.fullname === "") {
         callback({
             status: false,
@@ -146,12 +148,16 @@ async function signUp(userData, callback) {
         });
         return;
     }
+    // ===> VALIDASI INPUT AGAR TIDAK KOSONG
+    // ===> CARI EMAIL DUPLIKAT DI DATABASE FIRESTORE
     const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email));
     const snapshot = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q);
     const data = snapshot.docs.map((doc)=>({
             id: doc.id,
             ...doc.data()
         }));
+    // ===> CARI EMAIL DUPLIKAT DI DATABASE FIRESTORE
+    // ===> JIKA DUPLIKAT
     if (data.length > 0) {
         callback({
             status: false,
@@ -173,6 +179,7 @@ async function signUp(userData, callback) {
             });
         });
     }
+// ===> JIKA TIDAK DUPLIKAT
 }
 async function signInWithGoogle(userData, callback) {
     const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(firestore, "users"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("email", "==", userData.email));
@@ -278,11 +285,7 @@ async function handler(req, res) {
                 ]
             });
         }
-        res.status(200).json({
-            status: true,
-            statusCode: 200,
-            data
-        });
+    // res.status(200).json({ status: true, statusCode: 200, data });
     }
 }
 __turbopack_async_result__();

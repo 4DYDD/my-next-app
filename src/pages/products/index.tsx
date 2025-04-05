@@ -33,7 +33,7 @@ function Products() {
   //   fetchProducts();
   // }, []);
 
-  const { data, error, isLoading } = useSWR<Data | null>(
+  const { data, error, isLoading } = useSWR<Data | any>(
     "/api/products",
     fetcher
   );
@@ -55,7 +55,7 @@ function Products() {
                   href={`/products/${value.id}`}
                   className="m-3 p-3 flex-col flexc gap-1 rounded-xl shadow shadow-gray-400 outline-1 outline-gray-300"
                 >
-                  <li className=" flexc !justify-start w-full mb-5">
+                  <li className="flexc !justify-start w-full mb-5">
                     <div className="flexc w-full overflow-hidden rounded-xl">
                       <Image
                         width={592}
@@ -66,12 +66,12 @@ function Products() {
                       />
                     </div>
                   </li>
-                  <li className=" flexc !justify-start w-full px-2">
+                  <li className="flexc !justify-start w-full px-2">
                     <span className="flexc !justify-start min-w-[5rem] font-bold text-2xl">
                       {value.name}
                     </span>
                   </li>
-                  <li className=" flexc !justify-start w-full px-2">
+                  <li className="flexc !justify-start w-full px-2">
                     <span className="flexc !justify-start min-w-[5rem] text-lg font-semibold">
                       {toIndonesiaCurrency(value.price)}
                     </span>

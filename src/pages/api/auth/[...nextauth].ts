@@ -21,8 +21,7 @@ const authOptions: NextAuthOptions = {
       async authorize(credentials, req) {
         const { email, password } = credentials as UserType;
 
-        // const user: UserType = { id: 1, email, fullname, password };
-        const user: UserType | null = await signIn({ email, password });
+        const user = await signIn({ email, password });
 
         if (user) {
           const passwordConfirm = await compare(password, user.password);

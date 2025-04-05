@@ -63,6 +63,6 @@ export default async function handler(
         .json({ status: false, statusCode: 400, errors: ["nggk ada datanya"] });
     }
 
-    res.status(200).json({ status: true, statusCode: 200, data });
+    // res.status(200).json({ status: true, statusCode: 200, data });
   }
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import Script from "next/script";
 
 function Navbar() {
   interface Session {
@@ -37,7 +38,12 @@ function Navbar() {
             alt="Logo"
             className="rounded-full w-16"
           />
-          <span className="text-lg font-semibold">My App</span>
+          <h1 className="text-lg font-semibold w-20 flexc" id="app-title"></h1>
+          <Script id="script-app-title" strategy="lazyOnload">
+            {`
+              document.getElementById('app-title').innerHTML = 'My App';
+            `}
+          </Script>
         </div>
 
         {/* Menu */}
