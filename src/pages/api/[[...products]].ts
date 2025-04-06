@@ -25,23 +25,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data | DataError>
 ) {
-  // const data = [
-  //   {
-  //     id: 1,
-  //     name: "Baju Baru",
-  //     price: 500000,
-  //     size: "xl",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Baju Lama",
-  //     price: 100000,
-  //     size: "l",
-  //   },
-  // ];
-
-  // console.log(req.query.products?.[1] || "No second segment in the URL");
-
   if (req.query.products?.[1]) {
     const data = await retrieveDataById("products", req.query.products[1]);
 

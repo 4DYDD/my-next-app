@@ -48,7 +48,6 @@ export default function Home() {
             height={37}
             priority
           />
-          <div>halo gais</div>
         </div>
 
         <div className={styles.grid}>

@@ -42,38 +42,73 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@theme {
+  --color-primary-50: #f6f6f6;
+  --color-primary-100: #f3f4f6;
+  --color-primary-200: #e5e7eb;
+  --color-primary-300: #d1d5db;
+  --color-primary-400: #9ca3af;
+  --color-primary-500: #6c7280;
+  --color-primary-600: #4b5563;
+  --color-primary-700: #374151;
+  --color-primary-800: #1a202c;
+  --color-primary-900: #141922;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+  --color-primary-variant-50: #ddd8d8;
+  --color-primary-variant-100: #dad3d3;
+  --color-primary-variant-200: #d6d2d2;
+  --color-primary-variant-300: #d1d1d1;
+  --color-primary-variant-400: #c6c2c2;
+  --color-primary-variant-500: #bcb8b8;
+  --color-primary-variant-600: #b3b0b0;
+  --color-primary-variant-700: #a8a5a5;
+  --color-primary-variant-800: #9e9b9b;
+  --color-primary-variant-900: #8c8a8a;
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+  --color-secondary-50: #f6f6f6;
+  --color-secondary-100: #f9fafb;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #a0aec0;
+  --color-secondary-500: #718096;
+  --color-secondary-600: #4c5157;
+  --color-secondary-700: #343a40;
+  --color-secondary-800: #212529;
+  --color-secondary-900: #16181d;
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-} */
+  --color-dark-primary-50: #f6f6f6;
+  --color-dark-primary-100: #f3f4f6;
+  --color-dark-primary-200: #e5e7eb;
+  --color-dark-primary-300: #d1d5db;
+  --color-dark-primary-400: #9ca3af;
+  --color-dark-primary-500: #6c7280;
+  --color-dark-primary-600: #4b5563;
+  --color-dark-primary-700: #374151;
+  --color-dark-primary-800: #1a202c;
+  --color-dark-primary-900: #141922;
+
+  --color-dark-primary-variant-50: #ddd8d8;
+  --color-dark-primary-variant-100: #dad3d3;
+  --color-dark-primary-variant-200: #d6d2d2;
+  --color-dark-primary-variant-300: #d1d1d1;
+  --color-dark-primary-variant-400: #c6c2c2;
+  --color-dark-primary-variant-500: #bcb8b8;
+  --color-dark-primary-variant-600: #b3b0b0;
+  --color-dark-primary-variant-700: #a8a5a5;
+  --color-dark-primary-variant-800: #9e9b9b;
+  --color-dark-primary-variant-900: #8c8a8a;
+
+  --color-dark-secondary-50: #f6f6f6;
+  --color-dark-secondary-100: #f9fafb;
+  --color-dark-secondary-200: #e2e8f0;
+  --color-dark-secondary-300: #cbd5e1;
+  --color-dark-secondary-400: #a0aec0;
+  --color-dark-secondary-500: #718096;
+  --color-dark-secondary-600: #4c5157;
+  --color-dark-secondary-700: #343a40;
+  --color-dark-secondary-800: #212529;
+  --color-dark-secondary-900: #16181d;
+}
 
 * {
   box-sizing: border-box;
@@ -84,27 +119,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
-/* a {
-  color: inherit;
-  text-decoration: none;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
 
 .flexc {
   @apply flex items-center justify-center;
@@ -316,21 +330,21 @@ body {
 
 /* Custom Scrollbar */
 .scrollbar-custom {
-  scrollbar-width: thin;
-  scrollbar-color: #101828 #e4e8e9;
+  scrollbar-width: auto;
+  scrollbar-color: #5c6166 #e4e2e2;
 }
 
 .scrollbar-custom::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: #101828;
-  border-radius: 4px;
+  background-color: #5c6166;
+  border-radius: 14px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background-color: #e4e8e9;
-  border-radius: 4px;
+  background-color: #e4e2e2;
+  border-radius: 14px;
 }
