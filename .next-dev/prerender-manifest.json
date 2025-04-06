@@ -1,0 +1,26 @@
+{
+  "version": 4,
+  "routes": {
+    "/products/static": {
+      "initialRevalidateSeconds": 30,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/vbVd0wt9eeih7zeVKtvkR/products/static.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "36eca07304316bde8afe75a42da3da35",
+    "previewModeSigningKey": "7d161edc95ce70f02e5d737dc0b53389310045f1fd3224d6f6a120c73592d85c",
+    "previewModeEncryptionKey": "6c989b4bfa0fbfbe8a59de580d94d30373a19b1ce4f5677b007c73cf28f171d1"
+  }
+}

@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
-const isDev = process.env.NODE_ENV === "development";
 
 const nextConfig = {
   reactStrictMode: true,
-  distDir: isDev ? ".next-dev" : ".next", // Gunakan folder build yang berbeda untuk development dan production
+  distDir: ".next", // Gunakan folder build yang sama untuk development dan production
   images: {
     remotePatterns: [
       {

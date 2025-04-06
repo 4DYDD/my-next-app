@@ -1,8 +1,0 @@
-__turbopack_load_page_chunks__("/admin", [
-  "static/chunks/node_modules_next_dist_eb81a647._.js",
-  "static/chunks/node_modules_react-dom_82bb97c6._.js",
-  "static/chunks/node_modules_1b7400a8._.js",
-  "static/chunks/[root of the server]__095a5350._.js",
-  "static/chunks/src_pages_admin_index_tsx_5771e187._.js",
-  "static/chunks/src_pages_admin_index_tsx_bb4f6e6e._.js"
-])

@@ -26,7 +26,7 @@ const Navbar = dynamic(() => import("./Navbar"), { ssr: false });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "700"] });
 // const quicksand = Quicksand({ subsets: ["latin"], weight: ["400", "700"] });
 
-const disableNavbar = ["/auth/login", "/auth/register", "/404"];
+const disableNavbarFooter = ["/", "/auth/login", "/auth/register", "/404"];
 
 //
 //
@@ -42,11 +42,11 @@ const disableNavbar = ["/auth/login", "/auth/register", "/404"];
  * pathname diambil dari useRouter(). Kita menggunakan useRouter() untuk
  * mendapatkan pathname dari url yang sekarang sedang dibuka.
  *
- * Jika pathname (tidak ada) di dalam array disableNavbar, maka komponen Navbar
+ * Jika pathname (tidak ada) di dalam array disableNavbarFooter, maka komponen Navbar
  * akan dirender di atas elemen children dan komponen Footer akan dirender di
  * bawah elemen children.
  *
- * Jika pathname (ada) di dalam array disableNavbar, maka komponen Navbar dan
+ * Jika pathname (ada) di dalam array disableNavbarFooter, maka komponen Navbar dan
  * Footer tidak akan dirender.
  */
 function User({ children }: { children: ReactNode; className?: string }) {
@@ -54,9 +54,9 @@ function User({ children }: { children: ReactNode; className?: string }) {
 
   return (
     <main className={`${inter.className} h-screen flexc flex-col`}>
-      {!disableNavbar.includes(pathname) && <Navbar />}
+      {!disableNavbarFooter.includes(pathname) && <Navbar />}
       <div className="h-full flexc flex-col w-full">{children}</div>
-      {!disableNavbar.includes(pathname) && <Footer />}
+      {!disableNavbarFooter.includes(pathname) && <Footer />}
     </main>
   );
 }

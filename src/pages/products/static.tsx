@@ -77,14 +77,15 @@ export default ProductsPage;
 
 export async function getStaticProps() {
   // fetch data
-  const res = await fetch("http://localhost:3000/api/products");
-  const response = await res.json();
+  // const res = await fetch("http://localhost:3000/api/products");
+  // const response = await res.json();
 
-  const products: Array<DataType> | null = response?.data || [];
+  // const products: Array<DataType> | [] = response?.data || [];
 
   return {
     props: {
-      products,
+      // products,
+      products: [],
     },
     revalidate: 30,
   };

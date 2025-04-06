@@ -9,14 +9,18 @@ import { fetcher } from "@/lib/swr/fetcher";
 import { DataType } from "@/types/datatype";
 import Link from "next/link";
 
-function Products() {
+function ProductsPage() {
   const [isLogin, setIsLogin] = useState<Boolean>(true);
   const { push } = useRouter();
 
   useEffect(() => {
-    if (!isLogin) {
-      push("/auth/login");
-    }
+    const testLogin = async () => {
+      if (!isLogin) {
+        await push("/auth/login");
+      }
+    };
+
+    testLogin();
   }, [isLogin]);
 
   // useEffect(() => {
@@ -110,4 +114,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ProductsPage;

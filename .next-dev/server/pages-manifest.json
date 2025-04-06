@@ -1,6 +1,20 @@
 {
   "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/404": "pages/404.html",
+  "/about": "pages/about.html",
+  "/admin": "pages/admin.html",
   "/api/[[...products]]": "pages/api/[[...products]].js",
-  "/profile": "pages/profile.js"
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/api/register": "pages/api/register.js",
+  "/auth/login": "pages/auth/login.html",
+  "/": "pages/index.html",
+  "/products": "pages/products.html",
+  "/auth/register": "pages/auth/register.html",
+  "/profile": "pages/profile.html",
+  "/shop/[[...slug]]": "pages/shop/[[...slug]].html",
+  "/products/static": "pages/products/static.js",
+  "/products/[id]": "pages/products/[id].js",
+  "/products/server": "pages/products/server.js"
 }
