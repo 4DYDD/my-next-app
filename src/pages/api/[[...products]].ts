@@ -12,13 +12,19 @@ export type Data = {
         price: number;
         size: string;
       }>
+    | {
+        id?: string;
+        name: string;
+        price: number;
+        size: string;
+      }
     | any;
 };
 
 export type DataError = {
   status: boolean;
   statusCode: number;
-  errors: Array<string> | any;
+  data: Array<string> | any;
 };
 
 export default async function handler(
@@ -31,9 +37,11 @@ export default async function handler(
     if (data) {
       res.status(200).json({ status: true, statusCode: 200, data });
     } else {
-      res
-        .status(400)
-        .json({ status: false, statusCode: 400, errors: ["nggk ada datanya"] });
+      res.status(500).json({
+        status: false,
+        statusCode: 500,
+        data: ["Data tidak ditemukan!"],
+      });
     }
   } else {
     const data = await retrieveData("products");
@@ -43,7 +51,7 @@ export default async function handler(
     } else {
       res
         .status(400)
-        .json({ status: false, statusCode: 400, errors: ["nggk ada datanya"] });
+        .json({ status: false, statusCode: 400, data: ["nggk ada datanya"] });
     }
 
     // res.status(200).json({ status: true, statusCode: 200, data });

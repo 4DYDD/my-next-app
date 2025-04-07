@@ -3,7 +3,7 @@ import React from "react";
 
 function Custom404() {
   return (
-    <div className="flexc flex-col h-screen bg-gray-900 w-[100vw] text-white text-center">
+    <div className="flexc !flex-col h-[110vh] bg-gray-900 w-[110vw] text-white text-center fixed z-[99]">
       <h1 className="text-6xl m-0">404</h1>
       <p className="text-xl my-4">
         {`Oops! The page you're looking for doesn't exist.`}
