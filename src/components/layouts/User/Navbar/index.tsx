@@ -81,8 +81,11 @@ function Navbar() {
                       width={576}
                       height={576}
                       className="w-8 h-8 rounded-full transcenter outline outline-white"
-                      src={data?.user?.image || ""}
-                      alt={data?.user?.fullname || ""}
+                      src={
+                        data?.user?.image ||
+                        "https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png"
+                      }
+                      alt={data?.user?.fullname || "unknown"}
                     />
                   </span>
 
